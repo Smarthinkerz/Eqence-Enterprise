@@ -47,7 +47,7 @@
   --secondary: oklch(0.95 0.01 260);
   --secondary-foreground: oklch(0.20 0.02 260);
   --muted: oklch(0.95 0.01 260);
-  --muted-foreground: oklch(0.50 0.02 260);
+  --muted-foreground: oklch(0.45 0.02 260);
   --accent: oklch(0.95 0.01 260);
   --accent-foreground: oklch(0.20 0.02 260);
   --destructive: oklch(0.55 0.20 27);
@@ -65,10 +65,13 @@
   --sidebar-border: oklch(0.30 0.03 260);
   --sidebar-ring: oklch(0.50 0.18 25);
   --chart-1: oklch(0.50 0.18 25);
-  --chart-2: oklch(0.60 0.15 160);
-  --chart-3: oklch(0.55 0.12 250);
-  --chart-4: oklch(0.65 0.15 80);
-  --chart-5: oklch(0.55 0.18 310);
+  --chart-2: oklch(0.45 0.05 260);
+  --chart-3: oklch(0.60 0.12 200);
+  --chart-4: oklch(0.55 0.02 260);
+  --chart-5: oklch(0.70 0.13 80);
+  --sentiment-positive: oklch(0.60 0.13 150);
+  --sentiment-neutral: oklch(0.65 0.02 260);
+  --sentiment-negative: oklch(0.55 0.20 27);
 }
 
 .dark {
@@ -83,7 +86,7 @@
   --secondary: oklch(0.22 0.02 260);
   --secondary-foreground: oklch(0.92 0.01 260);
   --muted: oklch(0.22 0.02 260);
-  --muted-foreground: oklch(0.60 0.02 260);
+  --muted-foreground: oklch(0.55 0.02 260);
   --accent: oklch(0.22 0.02 260);
   --accent-foreground: oklch(0.92 0.01 260);
   --destructive: oklch(0.55 0.20 27);
@@ -158,14 +161,51 @@
     text-wrap: balance;
   }
   
+  /* Sentiment colors */
+  .sentiment-positive {
+    @apply text-[--sentiment-positive];
+  }
+  .sentiment-neutral {
+    @apply text-[--sentiment-neutral];
+  }
+  .sentiment-negative {
+    @apply text-[--sentiment-negative];
+  }
+  
+  .sentiment-dot-positive {
+    @apply w-2 h-2 rounded-full bg-[--sentiment-positive];
+  }
+  .sentiment-dot-neutral {
+    @apply w-2 h-2 rounded-full bg-[--sentiment-neutral];
+  }
+  .sentiment-dot-negative {
+    @apply w-2 h-2 rounded-full bg-[--sentiment-negative];
+  }
+  
+  /* Density utilities */
+  .density-comfortable {
+    --row-height: 3.5rem;
+    --font-size: 1rem;
+  }
+  .density-compact {
+    --row-height: 2.5rem;
+    --font-size: 0.875rem;
+  }
+  
+  /* Tabular numbers for metrics */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  
+  
   .btn-primary {
     @apply bg-[--color-monza] text-white font-semibold px-6 py-3 rounded-lg 
-           transition-all duration-150 hover:brightness-110 active:scale-[0.97];
+           transition-all duration-150 hover:brightness-110 active:scale-[0.99] active:opacity-90;
   }
 
   .btn-secondary {
     @apply border-2 border-[--color-monza] text-[--color-monza] font-semibold px-6 py-3 rounded-lg 
-           transition-all duration-150 hover:bg-[--color-monza] hover:text-white active:scale-[0.97];
+           transition-all duration-150 hover:bg-[--color-monza] hover:text-white active:scale-[0.99] active:opacity-90;
   }
 
   .card-elevated {
